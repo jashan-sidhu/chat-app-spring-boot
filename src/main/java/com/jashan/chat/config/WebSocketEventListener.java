@@ -12,7 +12,7 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 @Component
 @RequiredArgsConstructor
-@Slf4j
+@Slf4j //for generating logs
 public class WebSocketEventListener {
 
     private final SimpMessageSendingOperations meessageTemplate;
