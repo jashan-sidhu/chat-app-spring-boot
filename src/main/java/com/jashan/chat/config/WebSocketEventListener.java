@@ -21,7 +21,7 @@ public class WebSocketEventListener {
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
         String username = headerAccessor.getSessionAttributes().get("username").toString();
 
-        if(username != null){
+        if(username != null){ // this sends a message to all users that a user has left the chat
             log.info("User disconnected: {}", username);
             var chatMessage = ChatMessage.builder()
                     .type(MessageType.LEAVE)

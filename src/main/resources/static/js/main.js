@@ -1,14 +1,16 @@
-'use strict';
+'use strict';  //this means everything to be declared
 
+
+// these variables are to select part of the code
 var usernamePage = document.querySelector('#username-page');
 var chatPage = document.querySelector('#chat-page');
 var usernameForm = document.querySelector('#usernameForm');
 var messageForm = document.querySelector('#messageForm');
 var messageInput = document.querySelector('#message');
 var messageArea = document.querySelector('#messageArea');
-var connectingElement = document.querySelector('.connecting');
+var connectingElement = document.querySelector('.connecting'); // used CSS class
 
-var stompClient = null;
+var stompClient = null; //websocket
 var username = null;
 
 var colors = [
@@ -16,7 +18,7 @@ var colors = [
     '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
 ];
 
-function connect(event) {
+function connect(event) {  //when user clicks on CONNECT
     username = document.querySelector('#name').value.trim();
 
     if(username) {
@@ -52,7 +54,7 @@ function onError(error) {
 }
 
 
-function sendMessage(event) {
+function sendMessage(event) { //when user clicks on send message
     var messageContent = messageInput.value.trim();
     if(messageContent && stompClient) {
         var chatMessage = {
@@ -114,5 +116,5 @@ function getAvatarColor(messageSender) {
     return colors[index];
 }
 
-usernameForm.addEventListener('submit', connect, true)
-messageForm.addEventListener('submit', sendMessage, true)
+usernameForm.addEventListener('submit', connect, true) //when user clicks on CONNECT
+messageForm.addEventListener('submit', sendMessage, true) //when user clicks on send message
